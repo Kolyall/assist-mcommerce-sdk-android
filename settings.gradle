@@ -1,1 +1,1 @@
-include ':TestAssistSDK', ':sdk'
+include ':TestAssistSDK', ':assist-android-sdk'

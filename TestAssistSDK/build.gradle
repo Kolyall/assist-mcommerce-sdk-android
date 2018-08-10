@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "ru.assisttech.assistsdk.github"
         minSdkVersion 16
@@ -53,30 +53,17 @@ android {
 //            zipAlignEnabled true
 //        }
 //    }
-    String appName = name
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            String outName = output.outputFile.name.replace(".apk", "-${variant.versionName}.apk")
-            outName = outName.replace(appName, "mobilePayTest")
-            output.outputFile = new File(
-                    output.outputFile.parent,
-                    outName)
-        }
-    }
-    productFlavors {
-    }
-
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'io.card:android-sdk:5.5.1'
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'io.card:android-sdk:5.5.1'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
     // Google Wallet
-    compile 'com.google.android.gms:play-services-auth:9.4.0'
-    compile 'com.google.android.gms:play-services-wallet:9.4.0'
+    implementation 'com.google.android.gms:play-services-auth:9.4.0'
+    implementation 'com.google.android.gms:play-services-wallet:9.4.0'
 
-    compile 'com.github.mklimek:ssl-utils-android:1.0.1'
+    implementation 'com.github.mklimek:ssl-utils-android:1.0.1'
 
-    compile project(':sdk')
+    implementation project(':assist-android-sdk')
 }

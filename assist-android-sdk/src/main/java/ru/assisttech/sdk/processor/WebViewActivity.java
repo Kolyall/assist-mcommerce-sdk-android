@@ -32,15 +32,15 @@ import ru.assisttech.sdk.cardreader.AssistCard;
 import ru.assisttech.sdk.engine.AssistPayEngine;
 
 /**
- * Класс Activity для отображения и ввода данных в процессе оплаты банковской картой через web сервис Ассист
- * {@link ru.assisttech.sdk.AssistAddress#WEB_SERVICE}
+ * Activity class for displaying and entering data in the process of payment by bank card via web service Assist
+ * {@link ru.assisttech.sdk.AssistAddress # WEB_SERVICE}
  * <p>
- * Используется совместно с {@link AssistWebProcessor}
+ * Used in conjunction with {@link AssistWebProcessor}
  * <p>
- * Отображает содержимое HTML страниц в WebView.
- * Осуществляет контроль за загружаемыми страницами.
- * Заполняет поля для карточных данных на соответствующей странице.
- * Запускает сканирование банковской карты камерой смартфона с использованием библиотеки card.io
+ * Displays the contents of the HTML pages in WebView.
+ * Manages the downloaded pages.
+ * Fills the fields for card data on the corresponding page.
+ * Launches a banking card scan with a smartphone camera using the card.io library
  */
 public class WebViewActivity extends Activity implements AssistWebProcessor.WebContentView {
 

@@ -34,10 +34,10 @@ import ru.assisttech.sdk.network.AssistNetworkEngine.NetworkResponseProcessor;
 import ru.assisttech.sdk.network.HttpResponse;
 
 /**
- * Класс вызова и обработки ответов web сервиса Ассист {@link ru.assisttech.sdk.AssistAddress#WEB_SERVICE}
- * Используется совместно с классом {@link WebViewActivity}
+ * Class of invocation and processing of web service responses. Assist {@link ru.assisttech.sdk.AssistAddress # WEB_SERVICE}
+ * Used in conjunction with the {@link WebViewActivity} class
  * <p>
- * Парсит страницы во время проведения платежа для контроля за процессом оплаты и получения результата.
+ * Parse the pages during the payment to control the payment process and obtain the result.
  */
 public class AssistWebProcessor extends AssistBaseProcessor {
 
