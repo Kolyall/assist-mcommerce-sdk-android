@@ -26,8 +26,6 @@ import android.widget.ProgressBar;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import io.card.payment.CardIOActivity;
-import io.card.payment.CreditCard;
 import ru.assisttech.sdk.BuildConfig;
 import ru.assisttech.sdk.R;
 import ru.assisttech.sdk.cardreader.AssistCard;
@@ -164,7 +162,6 @@ public class WebViewActivity extends Activity implements AssistWebProcessor.WebC
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == MENU_ITEM_ID) {
-            startCardScanning();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -174,30 +171,7 @@ public class WebViewActivity extends Activity implements AssistWebProcessor.WebC
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == SCAN_REQUEST_CODE) {
-            if (data != null && data.hasExtra(CardIOActivity.EXTRA_SCAN_RESULT)) {
-
-                assistCard = new AssistCard();
-
-                CreditCard scanResult = data.getParcelableExtra(CardIOActivity.EXTRA_SCAN_RESULT);
-                assistCard.setPan(scanResult.cardNumber);
-
-                if (scanResult.isExpiryValid()) {
-                    assistCard.setExpireMonth(scanResult.expiryMonth);
-                    assistCard.setExpireYear(scanResult.expiryYear);
-                }
-                fillInCardFields(assistCard.getPan(), assistCard.getExpireMonth(), assistCard.getExpireYear());
-            }
         }
-    }
-
-    public void startCardScanning() {
-        Intent scanIntent = new Intent(this, CardIOActivity.class);
-        // customize these values to suit your needs.
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true);        // default: true
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false);            // default: false
-        scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false);    // default: false
-
-        startActivityForResult(scanIntent, SCAN_REQUEST_CODE);
     }
 
     public void postRequest() {
@@ -238,7 +212,6 @@ public class WebViewActivity extends Activity implements AssistWebProcessor.WebC
     @Override
     public void provideCardData() {
         if (assistCard == null) {
-            startCardScanning();
         } else {
             fillInCardFields(assistCard.getPan(), assistCard.getExpireMonth(), assistCard.getExpireYear());
         }

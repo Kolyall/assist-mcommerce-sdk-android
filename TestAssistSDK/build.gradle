@@ -26,33 +26,33 @@ android {
     //        keyalias=your_key_alias
     //        keypassword=your_key_password
     //
-    if (project.hasProperty("TestAssistSDK.properties") &&
-            new File((String) project.property("TestAssistSDK.properties")).exists()) {
-
-        Properties props = new Properties()
-        props.load(new FileInputStream(file(project.property("TestAssistSDK.properties"))))
-
-        signingConfigs {
-            release {
-                storeFile file(props['keystore'])
-                storePassword props['keystore.password']
-                keyAlias props['keyalias']
-                keyPassword props['keypassword']
-            }
-        }
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if (System.getenv("TRAVIS")) {
-                signingConfig null
-            } else {
-                signingConfig signingConfigs.release
-            }
-            zipAlignEnabled true
-        }
-    }
+//    if (project.hasProperty("TestAssistSDK.properties") &&
+//            new File((String) project.property("TestAssistSDK.properties")).exists()) {
+//
+//        Properties props = new Properties()
+//        props.load(new FileInputStream(file(project.property("TestAssistSDK.properties"))))
+//
+//        signingConfigs {
+//            release {
+//                storeFile file(props['keystore'])
+//                storePassword props['keystore.password']
+//                keyAlias props['keyalias']
+//                keyPassword props['keypassword']
+//            }
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//            if (System.getenv("TRAVIS")) {
+//                signingConfig null
+//            } else {
+//                signingConfig signingConfigs.release
+//            }
+//            zipAlignEnabled true
+//        }
+//    }
     String appName = name
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
