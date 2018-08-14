@@ -15,6 +15,7 @@ ext {
 
     publishedGroupId = 'com.github.kolyall'//only this
     artifact = 'assist-android-sdk'//should be the same as module name
+    artifactLocal = 'assist-android-sdk'//should be the same as module name
     libraryVersion = appVersionName
 
     libraryName = 'assist-android-sdk'
