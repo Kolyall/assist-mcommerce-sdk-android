@@ -30,5 +30,9 @@ crashlytics-build.properties
 fabric.properties
 /local.properties
 /assist-mcommerce-sdk-android.iml
-/.idea/codeStyles/Project.xml
+/.idea
+/build
 /assist-android-sdk/assist-android-sdk.iml
+.gradle
+.DS_Store
+*.iml
